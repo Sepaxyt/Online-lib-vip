@@ -1,0 +1,6 @@
+{
+    "version": "1.0.0",
+    "download_url": "https://github.com/YourUsername/YourRepo/raw/main/libbypass.so",
+    "checksum": "a1b2c3d4...",
+    "min_supported_game_version": "3.7.0"
+}
