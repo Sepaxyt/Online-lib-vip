@@ -1,0 +1,99 @@
+#include <list>
+#include <vector>
+#include <string.h>
+#include <pthread.h>
+#include <thread>
+#include <cstring>
+#include <jni.h>
+#include <unistd.h>
+#include <fstream>
+#include <iostream>
+#include <dlfcn.h>
+#include "Includes/Logger.h"
+#include "Includes/obfuscate.h"
+#include "Includes/Utils.h"
+#include "KittyMemory/MemoryPatch.h"
+#include "Includes/Macros.h"
+
+#define targetLibName OBFUSCATE("libUE4.so")
+#define targetLibName OBFUSCATE("libanogs.so")
+#define targetLibName OBFUSCATE("libanort.so")
+#define targetLibName OBFUSCATE("libhdmpve.so")
+#define targetLibName OBFUSCATE("libTDataMaster.so")
+#define targetLibName OBFUSCATE("libCrashKit.so")
+#include "Includes/Macros.h"
+
+#define _BYTE  uint8_t
+#define _WORD  uint16_t
+#define _DWORD uint32_t
+#define _QWORD uint64_t
+#define _OWORD uint64_t
+
+#define _BOOL8 uint64_t
+
+
+DWORD libanogsBase = 0;
+DWORD libUE4Base = 0;
+DWORD libanogsAlloc = 0;
+DWORD libUE4Alloc = 0;
+DWORD NewBase = 0;
+size_t libanogsSize = 0x3FD4E9;
+size_t libUE4Size = 0xAABB1E0;
+char *Offset;
+
+
+ 
+ 
+
+
+
+
+_QWORD *__fastcall (*sub_20C99C)(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4, char a5, char a6);
+_QWORD *__fastcall hooksub_20C99C(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4, char a5, char a6) {
+
+    
+        
+        return 0;
+    }
+
+
+
+__int64 __fastcall (*sub_20B870)(__int64 a1, __int64 a2, _DWORD *a3);
+__int64 __fastcall hooksub_20B870(__int64 a1, __int64 a2, _DWORD *a3) {
+
+    
+        
+        return 0;
+    }
+
+
+
+
+
+void * hack_thread(void *) {
+    LOGI(OBFUSCATE("DYNO LIBRARY READY..."));
+
+    do {
+        sleep(1);
+    } while (!isLibraryLoaded(targetLibName));
+    #if defined(__aarch64__)
+	
+ 
+HOOK_LIB("libanort.so", "0x12BA2C", hsub_1B99A4, osub_1B99A4);
+HOOK_LIB("libanogs.so", "0x173ED4", hooksub_EA74C, sub_EA74C);    // Case 16 Crash Fix
+ 
+PATCH_LIB("libUE4.so","0x0b282ef0","00 00 80 D2 C0 03 5F D6");
+PATCH_LIB("libUE4.so","0x0b2827e0","00 00 80 D2 C0 03 5F D6");
+
+    #endif
+    return NULL;
+}
+
+
+
+
+__attribute__((constructor))
+void lib_main() {
+    pthread_t ptid;
+    pthread_create(&ptid, NULL, hack_thread, NULL);
+}
