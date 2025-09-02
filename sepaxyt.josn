@@ -1,8 +1,16 @@
-{
-  "server_online": true,
-  "version": "2.6",
-  "safe_mod_url": "https://github.com/Sepaxyt/Online-lib-vip/releases/download/Online/lib_safe.so",
-  "brutal_mod_url": "https://github.com/Sepaxyt/Online-lib-vip/releases/download/Online/lib_brutal.so",
-  "latest_version": "2.6",
-  "update_message": "New features added! Update recommended"
+// Add this method to Loader.java for built-in fallback configuration
+private static JSONObject getDefaultConfig() {
+    try {
+        String defaultConfig = "{" +
+            "\"server_online\": true," +
+            "\"version\": \"2.5\"," +
+            "\"safe_mod_url\": \"https://github.com/Sepaxyt/Online-lib-vip/releases/download/Online/lib_safe.so\"," +
+            "\"brutal_mod_url\": \"https://github.com/Sepaxyt/Online-lib-vip/releases/download/Online/lib_brutal.so\"," +
+            "\"latest_version\": \"2.5\"," +
+            "\"update_message\": \"New features added! Update recommended\"" +
+        "}";
+        return new JSONObject(defaultConfig);
+    } catch (Exception e) {
+        return null;
+    }
 }
