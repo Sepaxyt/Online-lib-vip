@@ -1,0 +1,11 @@
+{
+  "verification_code": 125,
+  "server_online": true,
+  "version": "2.5",
+  "safe_mod_url": "https://raw.githubusercontent.com/yourusername/yourrepo/main/lib_safe.so",
+  "brutal_mod_url": "https://raw.githubusercontent.com/yourusername/yourrepo/main/lib_brutal.so",
+  "latest_version": "2.5",
+  "update_message": "New features added! Update recommended",
+  "expiry_date": "2024-12-31",
+  "encryption_key": "sepaxyt_vip_2024"
+}
