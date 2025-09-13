@@ -1,8 +1,1 @@
-{
-  "server_online": true,
-  "version": "2.5",
-  "safe_mod_url": "https://github.com/Sepaxyt/Online-lib-vip/releases/download/Online/lib_safe.so",
-  "brutal_mod_url": "https://github.com/Sepaxyt/Online-lib-vip/releases/download/Online/lib_brutal.so",
-  "latest_version": "3.7",
-  "update_message": "New features added! Update recommended"
-}
+{"server_status": true}
