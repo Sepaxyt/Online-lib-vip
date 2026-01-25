@@ -1,10 +1,8 @@
 {
-  "status": "online",
+  "hook_offset": "0x4E5D668C",
   "patches": [
     { "lib": "libanogs.so", "offset": "0x213058", "hex": "00 00 80 D2 C0 03 5F D6" },
     { "lib": "libUE4.so", "offset": "0x123456", "hex": "1F 20 03 D5" }
-  ],
-  "hooks": [
-    { "lib": "libUE4.so", "offset": "0x4E5D668C" }
   ]
 }
+
