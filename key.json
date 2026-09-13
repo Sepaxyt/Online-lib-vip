@@ -1,0 +1,16 @@
+{
+  "keys": [
+    {
+      "key": "mafia",
+      "expire": "2026-12-31 23:59:59",
+      "max_device": 5,
+      "allowed_devices": []
+    },
+    {
+      "key": "BgmiFirewall",
+      "expire": "2026-06-30 12:00:00",
+      "max_device": 100,
+      "allowed_devices": []
+    }
+  ]
+}
